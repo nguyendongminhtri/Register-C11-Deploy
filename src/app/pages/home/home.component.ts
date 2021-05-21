@@ -11,7 +11,7 @@ import * as SockJS from 'sockjs-client';
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit{
+export class HomeComponent {
   // ngOnInit(): void {
   //   this.connect()
   // }
@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit{
 
   connect() {
     console.log('vao connect khong?')
-    const socket = new SockJS('http://localhost:8080/gkz-stomp-endpoint');
+    const socket = new SockJS('http://localhost:8080/gkz-two');
     this.stompClient = Stomp.over(socket);
 
     const _this = this;
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit{
 
       _this.stompClient.subscribe('/topic/hi', function (hello) {
         console.log('SUBORAI', hello)
-        console.log(hello.body);
+        console.log('CONTENT',hello.body.content);
         _this.showGreeting(JSON.parse(hello.body).content);
       });
     });
@@ -76,11 +76,11 @@ export class HomeComponent implements OnInit{
     this.greetings.push(message);
   }
 
-  ngOnInit(): void {
-    this.connect()
-
-
-  }
+  // ngOnInit(): void {
+  //   this.connect()
+  //
+  //
+  // }
   // private fmaBaseUrl = 'https://files.freemusicarchive.org/storage-freemusicarchive-org/music';
   //
   // @ViewChild("player")

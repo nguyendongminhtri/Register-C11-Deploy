@@ -30,7 +30,10 @@ import { MatButtonModule } from '@angular/material/button';
 
 import {NavBarModule} from './shared/navbar';
 import {FooterModule} from './shared/footer';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RegisterComponent } from './form-login/register/register.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
@@ -38,11 +41,12 @@ export const appRoutes: Routes = [
     path: 'guide/getting-started',
     component: GettingStartedComponent,
     data: { title: 'Getting Started' }
-  }
+  },
+  {path: 'register', component: RegisterComponent, data: {title: 'Register'}}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -58,7 +62,7 @@ export const appRoutes: Routes = [
     BrowserAnimationsModule,
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, { useHash: false })
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
