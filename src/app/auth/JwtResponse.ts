@@ -1,7 +1,8 @@
-// export class JwtResponse {
-//   id: number;
-//   type: string;
-//   name: string;
-//   avatar: string;
-//   roles: any[];
-// }
+export class JwtResponse {
+  id: number;
+  type: string;
+  name: string;
+  token: string;
+  avatar: string;
+  roles: any[];
+}

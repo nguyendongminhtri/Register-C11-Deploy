@@ -3,6 +3,7 @@ const TOKEN_KEY = 'AuthToken';
 const AVATAR_KEY = 'AuthAvatar';
 const AUTHORITIES_KEY = 'AuthAuthorities';
 const NAME_KEY = 'AuthName';
+const USERNAME_KEY = 'AuthUsername'
 @Injectable({
   providedIn: 'root'
 })
@@ -38,5 +39,16 @@ export class TokenStorageService {
   }
   public getName(): string{
     return window.sessionStorage.getItem(NAME_KEY);
+  }
+  public saveAuthorities(authorities: string[]) {
+    window.sessionStorage.removeItem(AUTHORITIES_KEY);
+    window.sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
+  }
+  public getUsername(): string {
+    return sessionStorage.getItem(USERNAME_KEY);
+  }
+  public setUsername(username: string){
+    window.sessionStorage.removeItem(USERNAME_KEY);
+    window.sessionStorage.setItem(USERNAME_KEY,username);
   }
 }

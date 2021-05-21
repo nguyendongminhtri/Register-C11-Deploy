@@ -34,6 +34,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './form-login/register/register.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { LoginComponent } from './form-login/login/login.component';
+import { UserAccountComponent } from './form-login/user-account/user-account.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
@@ -42,11 +44,13 @@ export const appRoutes: Routes = [
     component: GettingStartedComponent,
     data: { title: 'Getting Started' }
   },
-  {path: 'register', component: RegisterComponent, data: {title: 'Register'}}
+  {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
+  {path: 'login', component: LoginComponent, data: {title: 'Login'}},
+  {path: 'user', component: UserAccountComponent, data: {title: 'User'}}
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

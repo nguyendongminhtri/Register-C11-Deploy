@@ -28,10 +28,10 @@ export class RegisterComponent implements OnInit {
     message: "noemail"
   }
   success: any = {
-    message: "yes"
+    message: "success"
   }
   constructor(private authService: AuthService,
-              private rotuer: Router) {
+              private router: Router) {
   }
 
   ngOnInit(): void {
